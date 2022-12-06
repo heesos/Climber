@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/emailFragment">
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.diploma.climber.activities.fragments.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_emailFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.diploma.climber.activities.fragments.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" >
+        <action
+            android:id="@+id/action_passwordFragment_to_emailFragment"
+            app:destination="@id/emailFragment"
+            app:enterAnim="@anim/slide_out_right"
+            app:exitAnim="@anim/slide_in_left"
+            />
+        <action
+            android:id="@+id/action_passwordFragment_to_photoFragment"
+            app:destination="@id/photoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_left" />
+        <argument
+            android:name="account"
+            app:argType="com.diploma.climber.domain.Account" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.diploma.climber.activities.fragments.PhotoFragment"
+        android:label="fragment_photo"
+        tools:layout="@layout/fragment_photo" >
+        <action
+            android:id="@+id/action_photoFragment_to_climbTypesFragment"
+            app:destination="@id/climbTypesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_left" />
+        <argument
+            android:name="account"
+            app:argType="com.diploma.climber.domain.Account" />
+    </fragment>
+    <fragment
+        android:id="@+id/climbTypesFragment"
+        android:name="com.diploma.climber.activities.fragments.ClimbTypesFragment"
+        android:label="fragment_climb_types"
+        tools:layout="@layout/fragment_climb_types" >
+        <action
+            android:id="@+id/action_climbTypesFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_left"/>
+        <argument
+            android:name="account"
+            app:argType="com.diploma.climber.domain.Account" />
+        <argument
+            android:name="user"
+            app:argType="com.diploma.climber.domain.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.diploma.climber.activities.fragments.DescriptionFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" >
+        <action
+            android:id="@+id/action_descriptionFragment_to_finishFragment"
+            app:destination="@id/finishFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_left" />
+        <argument
+            android:name="account"
+            app:argType="com.diploma.climber.domain.Account" />
+        <argument
+            android:name="user"
+            app:argType="com.diploma.climber.domain.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.diploma.climber.activities.fragments.FinishFragment"
+        android:label="fragment_finish"
+        tools:layout="@layout/fragment_finish" />
+    <argument
+        android:name="account"
+        app:argType="com.diploma.climber.domain.Account" />
+    <argument
+        android:name="user"
+        app:argType="com.diploma.climber.domain.User" />
+</navigation>
